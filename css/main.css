@@ -767,7 +767,12 @@ nav a:hover::before {
   transition: 0.4s;
 }
 
-.follow__item .fa:hover {
+.follow__item .fa-facebook {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.follow__item a:hover .fa {
   background-color: #fff;
   color: #000;
 }
