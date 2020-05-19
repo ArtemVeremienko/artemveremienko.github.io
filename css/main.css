@@ -475,13 +475,27 @@ nav a:hover::before {
 	margin-top: 0px;
 }
 
-.second-content p {
+.second-content h3 {
+  color: #fff;
+}
+
+.second-content ul {
+  padding-left: 20px;
+  color: #fff;
+}
+
+.second-content p,
+.second-content li {
 	font-size: 13px;
 	color: #fff;
 	letter-spacing: 0.5px;
 	font-weight: 300;
 	line-height: 24px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+}
+
+.second-content li {
+  margin-bottom: 0;
 }
 
 .second-content a {
