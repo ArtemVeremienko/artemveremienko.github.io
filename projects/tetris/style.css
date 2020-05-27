@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto 0;
+  padding-top: 20px;
+}
+
+.info {
+  width: 250px;
+  margin-right: 10px;
+  font-size: 40px;
+}
+
+.main {
+  width: 320px;
+  height: 620px;
+  border: 10px solid silver;
+  font-size: 0;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid silver;
+  display: inline-block;
+}
+
+.movingCell {
+  background-color: blue;
+}
+
+.fixedCell {
+  background-color: green;
+}
+
+#nextTetro {
+  width: 120px;
+  font-size: 0;
+  margin-left: 80px;
+}
+
+.buttons {
+  margin-left: 20px;
+}
+
+#start, #pause {
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+  background: transparent;
+  border: 2px solid silver;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+#start {
+  margin-bottom: 10px;
+}
+
+#start::before {
+  content: '\25ba';
+  font-size: 40px;
+  color: #0f0;
+}
+
+#pause::before {
+  content: '\2016';
+  font-size: 40px;
+  color: #ff0;
+}
+
+.game-over {
+  font-size: 50px;
+  color: green;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  margin: 0;
+  padding-top: 100px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.game-over__text {
+font-size: 100px;
+}
+
+.game-over__close {
+  position: fixed;
+  right: 50px;
+  top: 50px;
+  
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 0;
+}
+
+.game-over__close::before {
+  content: '\2716';
+  color: #fff;
+  font-size: 80px;
+  padding: 0 15px;
+}

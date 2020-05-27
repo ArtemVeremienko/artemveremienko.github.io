@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="info">
+      <div>Level: <span id="level">0</span></div>
+      <div>Score: <span id="score">0</span></div>
+    </div>
+
+    <div class="main"></div>
+
+    <div id="nextTetro"></div>
+
+    <div class="buttons">
+      <button id="start" type="button">Start</button>
+      <button id="pause" type="button">Pause</button>
+    </div>
+  </div>
+
+  <div class="game-over">
+    <p class="game-over__text">Game Over 😱</p>
+    <p>Your Score is: <span class="game-over__score">0</span></p>
+    <button class="game-over__close">Close</button>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
