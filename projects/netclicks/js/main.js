@@ -115,6 +115,7 @@ searchForm.addEventListener('submit', event => {
   if (value) {
     // searchFormInput.value = '';
     dbService.getSearchResult(value).then(renderCard);
+    searchFormInput.blur();
   }
 });
 
