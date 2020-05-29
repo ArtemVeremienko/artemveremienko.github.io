@@ -28,7 +28,7 @@ loading.className = 'loading';
 
 class DBService {
   getData = async (url) => {
-    this.temp = url;
+    this.saveQuery(url);
     tvShows.append(loading); // добавляет прелоадер для всех запросов
     const res = await fetch(url);
     if (res.ok) {
@@ -38,15 +38,22 @@ class DBService {
     }
   }
 
+  saveQuery = (url) => this.temp = url.includes('page') ?
+    url.slice(0, -6 - this.page.length) :
+    url; // при наличии &page=..., удаляет его из temp
+
   getTestData = () => this.getData('test.json')
 
   getSearchResult = query => this.getData(`${SERVER}/search/tv?api_key=${API_KEY}&query=${query}&language=ru-RU`)
 
-  getNextPage = page => this.getData(`${this.temp}&page=${page}`)
-
   getTvShow = id => this.getData(`${SERVER}/tv/${id}?api_key=${API_KEY}&language=ru-RU`)
 
   getFiltered = filter => this.getData(`${SERVER}/tv/${filter}?api_key=${API_KEY}&language=ru-RU`)
+
+  getNextPage = page => {
+    this.page = page;
+    return this.getData(`${this.temp}&page=${page}`);
+  }
 }
 
 const dbService = new DBService();
@@ -93,7 +100,7 @@ const renderCard = (response, target) => {
 
   pagination.textContent = '';
 
-  if (total_pages > 2) {
+  if (total_pages > 1) {
     for (let i = 1; i <= total_pages; i++) {
       pagination.innerHTML += `<li><a href="#" class="pages">${i}</a></li>`;
     }
@@ -152,6 +159,7 @@ leftMenu.addEventListener('click', event => {
   } else if (target.closest('#search')) {
     tvShowsList.textContent = '';
     tvShowsHead.textContent = '';
+    pagination.textContent = '';
     searchFormInput.focus();
   }
 
