@@ -113,7 +113,7 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const value = searchFormInput.value.trim();
   if (value) {
-    searchFormInput.value = '';
+    // searchFormInput.value = '';
     dbService.getSearchResult(value).then(renderCard);
   }
 });
